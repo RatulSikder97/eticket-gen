@@ -28,16 +28,10 @@ public class HomeController {
         String pdfDest = "target/output/output.pdf";  // Output PDF path
 
         try (InputStreamReader reader = new InputStreamReader(jsonFile.getInputStream(), StandardCharsets.UTF_8)) {
-            // Read HTML template into a string
             String htmlTemplate = new String(Files.readAllBytes(getPath(templatePath)), StandardCharsets.UTF_8);
-
-            // Parse JSON file into Employee object
             Employee employee = gson.fromJson(reader, Employee.class);
-
-            // Fill template with data and convert HTML to PDF
             String renderedHtml = fillTemplateWithData(htmlTemplate, employee);
 
-            // Ensure the output directory exists
             Path outputPath = Paths.get("target/output");
             if (!Files.exists(outputPath)) {
                 Files.createDirectories(outputPath);
@@ -65,10 +59,10 @@ public class HomeController {
     private String fillTemplateWithData(String htmlTemplate, Employee employee) {
         // Replace placeholders in HTML template with Employee data
         htmlTemplate = htmlTemplate.replace("{{id}}", String.valueOf(employee.getID()))
-                .replace("{{name}}", employee.getPersonalDetails().getName())
-                .replace("{{age}}", String.valueOf(employee.getPersonalDetails().getAge()))
-                .replace("{{bloodGroup}}", employee.getPersonalDetails().getBloodGroup())
-                .replace("{{address}}", employee.getPersonalDetails().getAddress());
+                .replace("{{personalDetails.name}}", employee.getPersonalDetails().getName())
+                .replace("{{personalDetails.age}}", String.valueOf(employee.getPersonalDetails().getAge()))
+                .replace("{{personalDetails.bloodGroup}}", employee.getPersonalDetails().getBloodGroup())
+                .replace("{{personalDetails.address}}", employee.getPersonalDetails().getAddress());
 
         return htmlTemplate;
     }

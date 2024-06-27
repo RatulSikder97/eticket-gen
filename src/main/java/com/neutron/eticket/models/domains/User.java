@@ -1,5 +1,7 @@
 package com.neutron.eticket.models.domains;
 
+import com.neutron.eticket.models.domains.PersonalDetails;
+
 public class User {
     private Long id;
     private String name;
