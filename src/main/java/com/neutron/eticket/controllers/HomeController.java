@@ -3,6 +3,7 @@ package com.neutron.eticket.controllers;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.itextpdf.html2pdf.HtmlConverter;
+import com.neutron.eticket.models.domains.ETicket;
 import com.neutron.eticket.models.domains.Employee;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,18 @@ import java.nio.file.Paths;
 
 @RestController
 public class HomeController {
+
+    @PostMapping("")
+    public ETicket generateEticketPdf(@RequestParam("file") MultipartFile jsonFile) {
+        Gson gson = new Gson();
+        try(InputStreamReader reader = new InputStreamReader(jsonFile.getInputStream(), StandardCharsets.UTF_8)) {
+            ETicket eTicket = gson.fromJson(reader, ETicket.class);
+            return eTicket;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     @PostMapping("/parseEmployee")
     public String parseEmployee(@RequestParam("file") MultipartFile jsonFile) {
