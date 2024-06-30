@@ -3,6 +3,9 @@ package com.neutron.eticket.controllers;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
 import com.neutron.eticket.models.domains.ETicket;
 import com.neutron.eticket.models.domains.Employee;
 import org.springframework.core.io.ClassPathResource;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -52,7 +56,13 @@ public class HomeController {
 
             // Convert HTML to PDF and save it to output path
             try (FileOutputStream pdfStream = new FileOutputStream(pdfDest)) {
-                HtmlConverter.convertToPdf(renderedHtml, pdfStream);
+                PdfWriter pdfWriter = new PdfWriter(pdfStream);
+                PdfDocument pdfDocument = new PdfDocument(pdfWriter);
+
+                PageSize pageSize = new PageSize(711.0F, 1100.0F);
+                pdfDocument.setDefaultPageSize(pageSize);
+                HtmlConverter.convertToPdf(new ByteArrayInputStream(renderedHtml.getBytes(StandardCharsets.UTF_8)), pdfDocument);
+
                 System.out.println("Dynamic HTML template converted to PDF successfully!");
                 return "PDF generated successfully!";
             } catch (IOException e) {
@@ -64,6 +74,7 @@ public class HomeController {
             return "Error processing file: " + e.getMessage();
         }
     }
+
 
     private Path getPath(String resourcePath) throws IOException {
         return new ClassPathResource(resourcePath).getFile().toPath();
