@@ -49,7 +49,17 @@ public class Body {
     }
 
     public String getTimetTs() {
-        return incidentTs[3] + "/"+ incidentTs[4] + "/" +  incidentTs[5] ;
+        long hour = incidentTs[3] % 12;
+
+        String sHour = String.valueOf(hour);
+        if(hour == 0) {
+            sHour = String.valueOf(12);
+        }
+
+        if (hour < 10) {
+            sHour = "0"+hour;
+        }
+        return sHour + ":"+ incidentTs[4] + ":" + (incidentTs[5] < 10 ? "0" : "") + incidentTs[5] ;
     }
 
     public String getTimeTsPm() {
