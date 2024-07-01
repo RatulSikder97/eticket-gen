@@ -8,6 +8,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.neutron.eticket.models.domains.ETicket;
 import com.neutron.eticket.models.domains.Employee;
+import com.neutron.eticket.services.EticketGenServiceImpl;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,17 +27,20 @@ import java.nio.file.Paths;
 @RestController
 public class HomeController {
 
-    @PostMapping("")
-    public ETicket generateEticketPdf(@RequestParam("file") MultipartFile jsonFile) {
-        Gson gson = new Gson();
-        try(InputStreamReader reader = new InputStreamReader(jsonFile.getInputStream(), StandardCharsets.UTF_8)) {
-            ETicket eTicket = gson.fromJson(reader, ETicket.class);
-            return eTicket;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public final EticketGenServiceImpl eticketGenService;
 
+    public HomeController(EticketGenServiceImpl eticketGenService) {
+        this.eticketGenService = eticketGenService;
     }
+
+
+    @PostMapping("")
+    public String generateEticketPdf(@RequestParam("file") MultipartFile jsonFile) {
+        this.eticketGenService.genTicket(jsonFile);
+        return "Eticket generated successfully";
+    }
+
+
 
     @PostMapping("/parseEmployee")
     public String parseEmployee(@RequestParam("file") MultipartFile jsonFile) {
@@ -59,7 +63,7 @@ public class HomeController {
                 PdfWriter pdfWriter = new PdfWriter(pdfStream);
                 PdfDocument pdfDocument = new PdfDocument(pdfWriter);
 
-                PageSize pageSize = new PageSize(711.0F, 1100.0F);
+                PageSize pageSize = new PageSize(711.0F, 1850.0F);
                 pdfDocument.setDefaultPageSize(pageSize);
                 HtmlConverter.convertToPdf(new ByteArrayInputStream(renderedHtml.getBytes(StandardCharsets.UTF_8)), pdfDocument);
 
