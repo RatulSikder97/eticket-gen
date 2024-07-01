@@ -54,6 +54,8 @@ public class EticketGenServiceImpl implements EticketGenService{
                 String html = htmlTemplates[i];
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 PdfDocument temp = new PdfDocument(new PdfWriter(baos));
+                PageSize pageSize = new PageSize(711.0F, 1850.0F);
+                temp.setDefaultPageSize(pageSize);
                 String htmlTemplate = new String(Files.readAllBytes(getPath(html)), StandardCharsets.UTF_8);
 
                 // Data Mapping
@@ -61,6 +63,8 @@ public class EticketGenServiceImpl implements EticketGenService{
                 HtmlConverter.convertToPdf(new ByteArrayInputStream(renderedHtml.getBytes(StandardCharsets.UTF_8)), temp);
                 temp = new PdfDocument(
                         new PdfReader(new ByteArrayInputStream(baos.toByteArray())));
+
+
                 merger.merge(temp, 1, temp.getNumberOfPages());
                 temp.close();
             }
