@@ -54,7 +54,7 @@ public class EticketGenServiceImpl implements EticketGenService{
                 String html = htmlTemplates[i];
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 PdfDocument temp = new PdfDocument(new PdfWriter(baos));
-                PageSize pageSize = new PageSize(711.0F, 1850.0F);
+                PageSize pageSize = new PageSize(711.0F, 1350.0F);
                 temp.setDefaultPageSize(pageSize);
                 String htmlTemplate = new String(Files.readAllBytes(getPath(html)), StandardCharsets.UTF_8);
 

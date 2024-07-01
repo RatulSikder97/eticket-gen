@@ -9,10 +9,6 @@
             box-sizing: border-box;
         }
 
-        @page {
-            margin: 10px;
-        }
-
         html,
         body {
             font-family: Arial, sans-serif;
@@ -30,8 +26,42 @@
             border-collapse: collapse;
         }
 
+        .space-y {
+            height: 5px;
+        }
+
+        .space-x {
+            width: 15px;
+        }
+
         .bt-0 {
             border-top: 0;
+        }
+
+        .bl-0 {
+            border-left: 0;
+        }
+
+        .br-0 {
+            border-right: 0;
+        }
+
+        .bb-0 {
+            border-bottom: 0;
+        }
+
+        .by-0 {
+            border-top: 0;
+            border-bottom: 0;
+        }
+
+        .bx-0 {
+            border-left: 0;
+            border-right: 0;
+        }
+
+        .shadow {
+            background: #ddd;
         }
 
         div.main-div {
@@ -52,21 +82,22 @@
 
 <body>
 <div class="container">
-    <h2 style="text-align: center;">ELECTRONIC TRAFFIC/NONTRAFFIC NOTICE TO APPEAR</h2>
-    <h2 style="text-align: center;">(Defendant’s Copy)</h2>
-    <p style="text-align: center;">Shaded areas indicate spaces subject to modification for local or agency
+    <p style="text-align: center; font-size: 28px;">ELECTRONIC TRAFFIC/NONTRAFFIC NOTICE TO APPEAR</p>
+    <p style="text-align: center; font-size: 28px;">(Defendant’s Copy)</p>
+    <p style="text-align: center; font-size: 18px; margin-bottom: 10px;"> <span class="idx">Shaded areas</span>  indicate spaces subject to modification for local or agency
         requirements.</p>
+
+    <!-- first -->
     <table style="width: 100%;">
-        <!-- 1 -->
         <tr>
-            <td style="width: 45%;">
+            <td style="width: 45%;" class="br-0">
                 <div class="main-div">
                     <p style="font-size: 16px;font-style: italic; text-transform: uppercase;">(Name of agency and
                         jurisdiction)</p>
                     <p style="font-weight: bold; font-size: 16px;">Notice to appear</p>
                 </div>
             </td>
-            <td style="width: 30%;">
+            <td style="width: 30%;" class="bx-0">
                 <div class="main-div">
                     <input disabled type="checkbox" id="misdemeanor">
                     <label for="misdemeanor">MISDEMEANOR</label>
@@ -82,7 +113,7 @@
                 </div>
 
             </td>
-            <td style="width: 25%;">
+            <td style="width: 25%;" class="bl-0">
                 <div class="main-div">
                     <p>(Citation No.)</p>
                     <p>{values}</p>
@@ -91,26 +122,26 @@
         </tr>
     </table>
 
+    <!-- 1 -->
     <table style="width: 100%; border-top: 0;">
-        <!-- 2 -->
         <tr style="border-top: 0;">
             <td class="bt-0" style="width: 20%; ">
                 <div class="main-div">
                     <p>Date of Violation</p>
 
                     <div>
-                        <span class="idx">2.</span>
+                        <span class="idx">1.</span>
                     </div>
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 25%;">
+            <td class="bt-0 br-0" style="width: 25%;">
                 <div class="main-div">
                     <p>Time</p>
                     <p>{Value}</p>
                 </div>
             </td>
-            <td class="bt-0" style="width: 5%; background: #ccc;">
+            <td class="bt-0 bl-0 shadow" style="width: 5%">
                 <div>
                     <p> <input type="checkbox"> AM</p>
                     <p> <input type="checkbox"> PM</p>
@@ -118,14 +149,14 @@
             </td>
 
 
-            <td class="bt-0" style="width: 20%;">
+            <td class="bt-0 shadow" style="width: 20%;">
                 <div class="main-div">
                     <p>Days of Week</p>
                     <p>{Value}</p>
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 30%;">
+            <td class="bt-0 shadow" style="width: 30%;">
                 <div class="main-div">
                     <p>Case No.</p>
                     <p>{Value}</p>
@@ -135,21 +166,21 @@
     </table>
 
 
-    <!-- 3 -->
+    <!-- 2 -->
     <table style="width: 100%; border-top: 0;">
-        <tr style="border-top: 0;">
-            <td class="bt-0" style="width: 50%; ">
+        <tr>
+            <td class="bt-0 br-0" style="width: 50%; ">
                 <div class="main-div">
                     <p>Name (First, Middle, Last)/(Company) </p>
 
                     <div>
-                        <span class="idx">1.</span>
+                        <span class="idx">2.</span>
                         <span>{Values}</span>
                     </div>
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 50%;">
+            <td class="bt-0 bl-0" style="width: 50%;">
                 <div class="main-div">
                     <p><input type="checkbox" name="" id=""> Owner’s Responsibility (VC 40001)</p>
                 </div>
@@ -174,9 +205,9 @@
     </table>
 
     <!-- 4 -->
-    <table style="width: 100%; border-top: 0;">
+    <table class="shadow" style="width: 100%; border-top: 0;">
         <tr style="border-top: 0;">
-            <td class="bt-0" style="width: 40%; ">
+            <td class="bt-0 br-0" style="width: 40%; ">
                 <div class="main-div">
                     <p>City </p>
 
@@ -187,14 +218,14 @@
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 15%; ">
+            <td class="bt-0 bx-0" style="width: 15%; ">
                 <div class="main-div">
                     <p>State/Country </p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 15%; ">
+            <td class="bt-0 bx-0" style="width: 15%; ">
                 <div class="main-div">
                     <p>Zip Code</p>
                     <p><span>{Values}</span></p>
@@ -214,7 +245,7 @@
     <!-- 5 -->
     <table style="width: 100%; border-top: 0;">
         <tr style="border-top: 0;">
-            <td class="bt-0" style="width: 30%; ">
+            <td class="bt-0 br-0" style="width: 30%; ">
                 <div class="main-div">
                     <p>Driver Lic. No. </p>
 
@@ -225,14 +256,14 @@
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 15%; ">
+            <td class="bt-0 bl-0" style="width: 15%; ">
                 <div class="main-div">
                     <p>State/Country </p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 10%; ">
+            <td class="bt-0 shadow" style="width: 10%; ">
                 <div class="main-div">
                     <p>Class</p>
                     <p><span>{Values}</span></p>
@@ -304,14 +335,14 @@
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 12%; ">
+            <td class="bt-0 shadow" style="width: 12%; ">
                 <div class="main-div">
                     <p>Race </p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td class="bt-0" style="width: 28%; ">
+            <td class="bt-0 shadow" style="width: 28%; ">
                 <div class="main-div">
                     <p>Other Descriptions </p>
                     <p><span>{Values}</span></p>
@@ -323,8 +354,9 @@
 
     <!-- 7,8,9,10, 11, 12,13,14, 15 -->
     <table style="width: 100%; border-top: 0;">
+        <!-- 7 -->
         <tr>
-            <td class="bt-0" colspan="8">
+            <td class="bt-0 shadow" colspan="8">
                 <div class="main-div">
                     <p>E-mail Address</p>
 
@@ -334,7 +366,7 @@
                     </div>
                 </div>
             </td>
-            <td class="bt-0" rowspan="2" colspan="4" style="width: 250px">
+            <td class="by-0" rowspan="2" colspan="4" style="width: 250px">
                 <div class="main-div">
                     <input disabled checked="{{eticket.body.vehicle.cmv}}" type="checkbox" id="comm-veh">
                     <lebel for="comm-veh" style="font-size: 16px; text-wrap: wrap;">
@@ -343,6 +375,8 @@
                 </div>
             </td>
         </tr>
+
+        <!-- 8 -->
         <tr>
             <td colspan="3" style="width: 35%; ">
                 <div class="main-div">
@@ -356,17 +390,19 @@
             </td>
             <td colspan="3" style="width: 17.5%; ">
                 <div class="main-div">
-                    <p>State/Country </p>
+                    <p>State/<span class="shadow">Country</span> </p>
                     <p>{Value}</p>
                 </div>
             </td>
-            <td colspan="2" style="width: 17.5%; ">
+            <td class="shadow" colspan="2" style="width: 17.5%; ">
                 <div class="main-div">
                     <p>Reg. Mo/Yr Exp </p>
                     <p>{Value}</p>
                 </div>
             </td>
         </tr>
+
+        <!-- 9 -->
         <tr>
             <td colspan="2">
                 <div class="main-div">
@@ -406,7 +442,7 @@
                     <p> {Values}</p>
                 </div>
             </td>
-            <td class="bt-0" rowspan="2" colspan="4"  style="width: 250px">
+            <td class="bt-0" rowspan="2" colspan="4" style="width: 250px">
                 <div class="main-div">
                     <input disabled checked="{{eticket.body.vehicle.cmv}}" type="checkbox" id="comm-veh">
                     <lebel for="comm-veh" style="font-size: 16px; text-wrap: wrap;">
@@ -415,8 +451,10 @@
                 </div>
             </td>
         </tr>
+
+        <!-- 10 -->
         <tr>
-            <td class="bt-0" colspan="4">
+            <td class="bt-0 br-0" colspan="4">
                 <div class="main-div">
                     <p>Evidence of Financial Responsibility </p>
 
@@ -426,9 +464,9 @@
                     </div>
                 </div>
             </td>
-            <td class="bt-0" colspan="4" style="width: 35%; ">
+            <td class="bt-0 bl-0" colspan="4" style="width: 35%; ">
                 <div class="main-div">
-                    <p>CHP/DOT/PUC/ICC </p>
+                    <p><span class="shadow">CHP/DOT/PUC/ICC </span></p>
                     <p>{Value}</p>
                 </div>
             </td>
@@ -436,7 +474,7 @@
 
         <!-- 11 -->
         <tr>
-            <td class="bt-0" colspan="8">
+            <td class="br-0" colspan="8">
                 <div class="main-div">
                     <p>Registered Owner or Lessee </p>
 
@@ -446,7 +484,7 @@
                     </div>
                 </div>
             </td>
-            <td class="bt-0" colspan="4" style="width: 250px">
+            <td class="bl-0" colspan="4" style="width: 250px">
                 <div class="main-div">
                     <input disabled type="checkbox" checked="{{eticket.body.vehicle.cmv}}">
                     <lebel>
@@ -458,7 +496,7 @@
 
         <!-- 12 -->
         <tr>
-            <td class="bt-0" colspan="3">
+            <td class="br-0" colspan="3">
                 <div class="main-div">
                     <p>Address </p>
 
@@ -468,26 +506,26 @@
                     </div>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="bx-0" colspan="2">
                 <div class="main-div">
-                    <p>City</p>
+                    <p><span class="shadow">City</span></p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td colspan="2">
+            <td class="bx-0" colspan="2">
                 <div class="main-div">
-                    <p>State/Country </p>
+                    <p class="shadow">State/Country </p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
-            <td colspan="1" style="width: 10%;">
+            <td class="bx-0" colspan="1" style="width: 10%;">
                 <div class="main-div">
                     <p>Zip Code</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
-            <td class="bt-0" colspan="4" style="width: 250px">
+            <td class="bl-0" colspan="4" style="width: 250px">
                 <div class="main-div">
                     <input disabled type="checkbox" checked="{{eticket.body.vehicle.cmv}}">
                     <lebel>
@@ -498,85 +536,92 @@
         </tr>
 
         <!-- 13 -->
-        <tr>
-            <td class="bt-0" colspan="2">
+        <tr class="shadow">
+            <td class="bt-0 bb-0 br-0" colspan="1">
                 <div class="main-div">
                     <div>
                         <span class="idx">13.</span>
-                        <span> {Values}</span>
                     </div>
-                    <p>Veh 2</p>
                 </div>
             </td>
 
-            <td colspan="3">
+            <td class="bb-0 bx-0" colspan="4">
                 <div class="main-div">
                     <p>Veh. Lic. No. or VIN</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td colspan="2">
+            <td class="bb-0 bx-0" colspan="3">
                 <div class="main-div">
                     <p>State/Country Reg.</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
-            <td colspan="5">
+            <td class="bb-0 bl-0" colspan="4">
                 <div class="main-div">
                     <p> Mo/Yr Exp.</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
         </tr>
+        <tr class="shadow">
+            <td class="by-0 br-0" colspan="1">
+                <div class="main-div">
+                    <div>
+                        <p>Veh 2</p>
+                    </div>
+                </div>
+            </td>
+            <td class="bb-0 bx-0 bt-0" colspan="11">
+            </td>
+        </tr>
 
         <!-- 14 -->
-        <tr>
-            <td class="bt-0" colspan="1">
+        <tr class="shadow">
+            <td class="bt-0 br-0" colspan="1">
                 <div class="main-div">
                     <div>
                         <span class="idx">14.</span>
-                        <span> {Values}</span>
                     </div>
-                    <p>Veh 2</p>
                 </div>
             </td>
 
-            <td colspan="1">
+            <td class="bx-0" colspan="1">
                 <div class="main-div">
                     <p>Yr. of Vech.</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td colspan="2">
+            <td class="bx-0" colspan="2">
                 <div class="main-div">
                     <p>Make</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td colspan="2">
+            <td class="bx-0" colspan="2">
                 <div class="main-div">
                     <p>Model</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
-            <td colspan="1">
+            <td class="bx-0" colspan="2">
                 <div class="main-div">
                     <p>Body Style</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td colspan="1">
+            <td class="bx-0" colspan="1">
                 <div class="main-div">
                     <p>Color</p>
                     <p><span>{Values}</span></p>
                 </div>
             </td>
 
-            <td colspan="3">
+            <td class="bl-0" colspan="3">
                 <div class="main-div">
                     <p>Type</p>
                     <p><span>{Values}</span></p>
@@ -585,32 +630,26 @@
         </tr>
 
         <!-- 15 -->
-        <tr>
-            <td class="bt-0" colspan="1">
+        <tr class="shadow">
+            <td class="br-0" colspan="4">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <div>
                         <span class="idx">15.</span>
+                        <input type="checkbox"> VC 42009 Construction Zone
                     </div>
+                    <div class="space-y"></div>
                 </div>
             </td>
 
-            <td colspan="4">
+            <td class="bx-0" colspan="4">
                 <div class="main-div">
-                    <p style="padding: 10px;"></p>
-                    <p> <input type="checkbox"> VC 42009 Construction Zone</p>
-                </div>
-            </td>
-
-            <td colspan="4">
-                <div class="main-div">
-                    <p style="padding: 10px;"></p>
                     <p> <input type="checkbox"> VC 42010 Safety Zone</p>
                 </div>
             </td>
 
-            <td colspan="3" style="width: 20%;">
+            <td class="bl-0" colspan="4" style="width: 20%;">
                 <div class="main-div">
-                    <p style="padding: 10px;"></p>
                     <p> <input type="checkbox"> Schools Zone</p>
                 </div>
             </td>
@@ -621,19 +660,19 @@
     <!-- 16, 17, 18, 19 -->
     <table style="width: 100%; border-top: 0;">
         <tr>
-            <td class="bt-0" colspan="5" style="width: 40%;">
+            <td class="by-0 br-0" colspan="5" style="width: 40%;">
                 <div class="main-div">
                     <p>Correctable Violation (VC 40610)</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="5" style="width: 40%;">
+            <td class="by-0 bx-0" colspan="5" style="width: 40%;">
                 <div class="main-div">
                     <p><input type="checkbox"> Booking Required (see below) </p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="2" style="width: 20%;">
+            <td class="by-0 bl-0" colspan="2" style="width: 20%;">
                 <div class="main-div">
                     <p>Misdemeanor</p>
                     <p>or Infraction</p>
@@ -642,25 +681,25 @@
         </tr>
 
         <tr>
-            <td class="bt-0" colspan="2">
+            <td class="br-0 by-0" colspan="2">
                 <div class="main-div">
                     <p>Yes/No</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3">
+            <td class="bx-0 by-0" colspan="3">
                 <div class="main-div">
                     <p>Code and Section</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3" style="width: 38%;">
+            <td class="bx-0 by-0" colspan="3" style="width: 38%;">
                 <div class="main-div">
                     <p>Descriptions</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="4">
+            <td class="bl-0 by-0" colspan="4">
                 <div class="main-div">
                     <Button>Overweight</Button>
                 </div>
@@ -668,15 +707,15 @@
         </tr>
 
         <tr>
-            <td class="bt-0" colspan="10"></td>
+            <td class="br-0 by-0" colspan="10"></td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bx-0 by-0" colspan="1">
                 <div class="main-div">
                     <p>M</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bl-0 by-0" colspan="1">
                 <div class="main-div">
                     <p>I</p>
                 </div>
@@ -685,37 +724,37 @@
 
         <!-- 16 -->
         <tr>
-            <td class="bt-0" colspan="2">
+            <td class="by-0 br-0" colspan="2">
                 <div class="main-div">
                     <p><span class="idx">16</span> Yes/No</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3">
+            <td class="bt-0 bx-0" colspan="3">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3" style="width: 38%;">
+            <td class="bt-0 bx-0" colspan="3" style="width: 38%;">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="2">
+            <td class="bt-0 bx-0" colspan="2">
                 <div class="main-div" style="width: 100px;">
                     <p>{Values} lbs</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bt-0 bx-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bt-0 bx-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
@@ -723,38 +762,40 @@
         </tr>
 
         <!-- 17 -->
-        <tr>
-            <td class="bt-0" colspan="2">
+        <tr class="shadow">
+            <td class="by-0 br-0" colspan="2">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <p><span class="idx">17</span> Yes/No</p>
+                    <div class="space-y"></div>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3">
+            <td class="bx-0" colspan="3">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3" style="width: 38%;">
+            <td class="bx-0" colspan="3" style="width: 38%;">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="2">
+            <td class="bx-0" colspan="2">
                 <div class="main-div" style="width: 100px;">
                     <p>{Values} lbs</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bx-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bl-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
@@ -763,37 +804,39 @@
 
         <!-- 18 -->
         <tr>
-            <td class="bt-0" colspan="2">
+            <td class="by-0 br-0" colspan="2">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <p><span class="idx">18</span> Yes/No</p>
+                    <div class="space-y"></div>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3">
+            <td class="bx-0" colspan="3">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3" style="width: 38%;">
+            <td class="bx-0" colspan="3" style="width: 38%;">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="2">
+            <td class="bx-0" colspan="2">
                 <div class="main-div" style="width: 100px;">
                     <p>{Values} lbs</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bx-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bl-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
@@ -801,38 +844,40 @@
         </tr>
 
         <!-- 19 -->
-        <tr>
-            <td class="bt-0" colspan="2">
+        <tr class="shadow">
+            <td class="by-0 br-0" colspan="2">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <p><span class="idx">19</span> Yes/No</p>
+                    <div class="space-y"></div>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3">
+            <td class="bx-0" colspan="3">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="3" style="width: 38%;">
+            <td class="bx-0" colspan="3" style="width: 38%;">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="2">
+            <td class="bx-0" colspan="2">
                 <div class="main-div" style="width: 100px;">
                     <p>{Values} lbs</p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bx-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
             </td>
 
-            <td class="bt-0" colspan="1">
+            <td class="bl-0" colspan="1">
                 <div class="main-div">
                     <p><input type="checkbox"></p>
                 </div>
@@ -866,25 +911,25 @@
                     <p>{Values}</p>
                 </div>
             </td>
-            <td class="bt-0" colspan="1">
+            <td class="bt-0 shadow" colspan="1">
                 <div class="main-div">
                     <p>Safe</p>
                     <p>{Values}</p>
                 </div>
             </td>
-            <td class="bt-0" colspan="1">
+            <td class="bt-0 shadow" colspan="1">
                 <div class="main-div">
                     <p>Radar</p>
                     <p>{Values}</p>
                 </div>
             </td>
-            <td class="bt-0" colspan="2">
+            <td class="bt-0 shadow" colspan="1">
                 <div class="main-div">
                     <p></p>
                     <p>{Values}</p>
                 </div>
             </td>
-            <td class="bt-0" rowspan="4" style="width: 170px">
+            <td class="bt-0 shadow" rowspan="4" style="width: 170px">
                 <div class="main-div">
                     <p style="font-size: 16px; text-align: center;">
                         <strong>RIGHT / LEFT
@@ -897,7 +942,7 @@
 
         <!-- 21 -->
         <tr>
-            <td class="bt-0" colspan="5">
+            <td class="br-0" colspan="5">
                 <div class="main-div">
                     <p>Location of Violation(s)</p>
 
@@ -907,7 +952,7 @@
                     </div>
                 </div>
             </td>
-            <td class="bt-0" colspan="3">
+            <td class="bl-0 shadow" colspan="3">
                 <div class="main-div">
                     <p>City/County of Occurrence</p>
                     <p>{Values}</p>
@@ -916,20 +961,20 @@
         </tr>
 
         <!-- 22 -->
-        <tr>
-            <td class="bt-0" colspan="6">
+        <tr class="shadow">
+            <td class="br-0 bb-0" colspan="6">
                 <div class="main-div">
                     <p>Comments (Weather, Road & Traffic Conditions, Etc.)</p>
                 </div>
             </td>
-            <td class="bt-0" colspan="2">
+            <td class="bl-0 bb-0" colspan="2">
                 <div class="main-div">
                     <p><input type="checkbox"> Accident</p>
                 </div>
             </td>
         </tr>
-        <tr>
-            <td class="bt-0" colspan="6">
+        <tr class="shadow">
+            <td class="br-0 bt-0" colspan="6">
                 <div class="main-div" style="height: 40px;">
                     <div>
                         <span class="idx">22.</span>
@@ -937,104 +982,129 @@
                     </div>
                 </div>
             </td>
-            <td class="bt-0" colspan="2">
+            <td class="bl-0 bt-0" colspan="2">
             </td>
         </tr>
     </table>
 
     <!-- 23, 24, 25, 26, 27, 28 -->
-    <table style="width: 100%; border-top: 0;">
+    <table style="width: 100%; border-top: 0; border-bottom: 0;">
         <!-- 23 -->
         <tr>
-            <td colspan="12" class="bt-0">
+            <td colspan="12" class="by-0">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <span class="idx">23.</span>
                     <span><input type="checkbox"> Violations not committed in my presence, declared on information
                             and
                             belief</span>
+                    <div class="space-y"></div>
                 </div>
             </td>
         </tr>
 
         <!-- 24 -->
         <tr>
-            <td colspan="12">
+            <td class="by-0" colspan="12">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <p><span class="idx">24.</span> I declare under penalty of perjury under the laws of the State
                         of California that the
                         foregoing is true
                         and correct.</p>
+                    <div class="space-y"></div>
                 </div>
             </td>
         </tr>
 
         <!-- _ -->
         <tr>
-            <td colspan="4">
-                <div class="main-div">
+            <td class="br-0 by-0" colspan="4">
+                <div class="main-div shadow" style="margin: 5px 15px;">
                     <p>Citation # {Values}</p>
                 </div>
             </td>
-            <td colspan="4">
-                <div class="main-div">
+            <td class="bx-0 by-0" colspan="4">
+                <div class="main-div shadow" style="margin: 5px 15px;">
                     <p>Violation location {Values}</p>
                 </div>
             </td>
-            <td colspan="4">
-                <div class="main-div">
+            <td class="bl-0 by-0" colspan="4">
+                <div class="main-div shadow" style="margin: 5px 15px;">
                     <p>Executed at (place) {Values}</p>
                 </div>
             </td>
         </tr>
+    </table>
 
+    <!-- 25, 26 -->
+    <table style="width: 100%; border-top: 0; border-bottom: 0;">
         <!-- 25 -->
         <tr>
-            <td colspan="10"></td>
-            <td colspan="2">
+            <td class="by-0 br-0" colspan="1"></td>
+            <td class="by-0 bx-0" colspan="2"></td>
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="by-0 bx-0" colspan="2"></td>
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="by-0 bx-0 shadow" colspan="2"></td>
+            <td class="by-0 bx-0 shadow" colspan="1"></td>
+            <td class="by-0 bl-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>Fm {Values}</p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td class="by-0 br-0" colspan="1">
                 <div class="main-div">
-                    <p><span class="idx">25.</span> {Values}</p>
+                    <p><span class="idx">25.</p>
                 </div>
             </td>
-            <td colspan="5">
+            <td class="bt-0 bx-0" colspan="2">
+                <div class="main-div">
+                    <p>dd/mm/yy</p>
+                </div>
+            </td>
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bt-0 bx-0" colspan="2">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bt-0 bx-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0 shadow" colspan="1"></td>
+            <td class="bt-0 bl-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>To {Values}</p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bx-0 by-0" colspan="2">
                 <div class="main-div">
-                    <p style="padding-left: 25px;">Dec. Date</p>
+                    <p>Dec. Date</p>
                 </div>
             </td>
-            <td colspan="5">
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bx-0 by-0" colspan="2">
                 <div class="main-div">
                     <p>Arresting or Citing Officer</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bx-0 by-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>Serial No.</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0 shadow" colspan="1"></td>
+            <td class="bx-0 by-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>Vac. Dates</p>
                 </div>
@@ -1043,66 +1113,100 @@
 
         <!-- 26 -->
         <tr>
-            <td colspan="10"></td>
-            <td colspan="2">
+            <td class="by-0 bx-0" colspan="1">
+                <div class="space-x"></div>
+            </td>
+            <td class="by-0 bx-0" colspan="2"></td>
+            <td class="by-0 bx-0" colspan="1">
+                <div class="space-x"></div>
+            </td>
+            <td class="by-0 bx-0" colspan="2"></td>
+            <td class="by-0 bx-0" colspan="1">
+                <div class="space-x"></div>
+            </td>
+            <td class="by-0 bx-0 shadow" colspan="2"></td>
+            <td class="by-0 bx-0 shadow" colspan="1">
+                <div class="space-x"></div>
+            </td>
+            <td class="by-0 bl-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>Fm {Values}</p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td class="by-0 br-0" colspan="1">
                 <div class="main-div">
-                    <p><span class="idx">26.</span> {Values}</p>
+                    <p><span class="idx">26.</span></p>
                 </div>
             </td>
-            <td colspan="5">
+            <td class="by-0 bx-0" colspan="2">
+                <div class="main-div">
+                    <p>dd/mm/yy</p>
+                </div>
+            </td>
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="by-0 bx-0" colspan="2">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bt-0 bx-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>{Values}</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0 shadow" colspan="1"></td>
+            <td class="bt-0 bl-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>To {Values}</p>
                 </div>
             </td>
         </tr>
         <tr>
-            <td colspan="3">
+            <td class="by-0 bx-0" colspan="1">
+                <div class="space-x"></div>
+            </td>
+            <td class="bx-0 bb-0" colspan="2">
                 <div class="main-div">
-                    <p style="padding-left: 25px;">Dec. Date</p>
+                    <p>Dec. Date</p>
                 </div>
             </td>
-            <td colspan="5">
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bx-0 bb-0" colspan="2">
                 <div class="main-div">
                     <p>Name of Arresting Officer,
                         if different from Citing Officer</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0" colspan="1"></td>
+            <td class="bx-0 by-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>Serial No.</p>
                 </div>
             </td>
-            <td colspan="2">
+            <td class="by-0 bx-0 shadow" colspan="1"></td>
+            <td class="bx-0 by-0 shadow" colspan="2">
                 <div class="main-div">
                     <p>Vac. Dates</p>
                 </div>
             </td>
         </tr>
+    </table>
 
-        <!-- 27 -->
+    <!-- 27 -->
+    <table style="width: 100%; border-top: 0; border-bottom: 0;">
         <tr>
-            <td colspan="12">
+            <td class="bx-0 by-0" colspan="1">
                 <div class="main-div">
                     <span class="idx">27.</span>
-                    <div style="display: inline-block;">
-                        <p>
+                </div>
+            </td>
+            <td class="" colspan="10">
+                <div class="main-div">
+                    <div>
+                        <p style="font-size: 18px;">
                             <strong>
                                 WITHOUT ADMITTING GUILT, I PROMISE TO APPEAR AT THE TIME AND PLACE
                                 INDICATED BELOW.
@@ -1112,21 +1216,36 @@
                     </div>
                 </div>
             </td>
+            <td class="bx-0 by-0" colspan="1">
+                <div class="space-x"></div>
+                <div class="space-x"></div>
+                <div class="space-x"></div>
+            </td>
         </tr>
+    </table>
 
-        <!-- 28 -->
+    <!-- 28 -->
+    <table style="width: 100%; border-top: 0; border-bottom: 0;">
         <tr>
-            <td colspan="2">
+            <td class="bx-0 by-0">
+                <div class="space-y"></div>
+                <div class="space-y"></div>
+            </td>
+        </tr>
+        <tr>
+            <td class="by-0 br-0" colspan="2">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <p><span class="idx">28.</span> WHEN: </p>
+                    <div class="space-y"></div>
                 </div>
             </td>
-            <td colspan="6">
+            <td class="by-0 bx-0" colspan="6">
                 <div class="main-div">
                     <p>ON OR BEFORE THIS DATE: {Values}</p>
                 </div>
             </td>
-            <td colspan="4">
+            <td class="by-0 bl-0 shadow" colspan="4">
                 <div class="main-div">
                     <p>
                         Time: {Values}
@@ -1137,15 +1256,17 @@
             </td>
         </tr>
         <tr>
-            <td colspan="8">
+            <td class="bx-0 by-0" colspan="8">
             </td>
-            <td colspan="4">
+            <td class="bx-0 by-0 shadow" colspan="4">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <p>
                         Time: {Values}
                         <input type="checkbox"> AM
                         <input type="checkbox"> PM
                     </p>
+                    <div class="space-y"></div>
                 </div>
             </td>
         </tr>
@@ -1153,49 +1274,42 @@
     </table>
 
     <!-- 29 -->
-    <table style="width: 100%; border-top: 0;">
+    <table style="width: 100%; border-bottom: 0; border-top: 0;">
         <!-- _ -->
         <tr>
-            <td colspan="2" class="bt-0">
+            <td class="bx-0 by-0" colspan="2">
                 <div class="main-div">
                     <p>WHAT TO DO:</p>
                 </div>
             </td>
-            <td colspan="6" class="bt-0">
+            <td class="bx-0 by-0" colspan="6">
                 <div class="main-div">
                     <p>FOLLOW THE INSTRUCTIONS BELOW.</p>
                 </div>
             </td>
-            <td rowspan="2" colspan="3" class="bt-0">
-                <div class="main-div" style="width: 100px; height: 140px;">
-                    <p style="text-align: center; padding: 50px 50px; font-size: 18px;">
+            <td class="shadow" rowspan="2" colspan="3">
+                <div class="main-div" style="width: 100px;height: 140px;margin: auto;padding-top: 36%;">
+                    <p style="text-align: center;font-size: 18px;">
                         <strong>PHOTO</strong>
                     </p>
                 </div>
             </td>
-            <td class="bt-0" rowspan="2" colspan="1">
-                <div class="main-div" style="width: 30px;">
-                    <div style="
-                        height: 40px; width: 141px;
-                        transform: rotate(90deg) translate(-71px, -10px);
-                        transform-origin: left;
-                        text-align: center;
-                        ">
-                        <p>{Values}</p>
-                        <p>(Citation No.)</p>
-                    </div>
+            <td class="shadow by-0" style="width: 55px; position: relative;" rowspan="2" colspan="1">
+                <div class="main-div" style="transform: rotate(90deg);position: absolute;width: 110px;top: 55px;text-align: center;left: -30px;">
+                    <p>{Values}</p>
+                    <p>(Citation No.)</p>
                 </div>
             </td>
         </tr>
 
         <!-- 29 -->
         <tr>
-            <td colspan="2">
+            <td class="bx-0 by-0" colspan="2">
                 <div class="main-div">
                     <p><span class="idx">29.</span> WHERE:</p>
                 </div>
             </td>
-            <td colspan="6">
+            <td class="bx-0 by-0" colspan="6">
                 <div class="main-div">
                     <p>[Name of court[s]]</p>
                     <p>[Section[s] or division[s], room no[s].]</p>
@@ -1210,16 +1324,18 @@
     <table style="width: 100%; border-top: 0;">
         <!-- 30 -->
         <tr>
-            <td class="bt-0" colspan="2">
+            <td class="by-0 bx-0" colspan="2">
                 <div class="main-div">
+                    <div class="space-y"></div>
                     <p>
                         <span class="idx">30.</span>
                         <input type="checkbox">
                         To be notified
                     </p>
+                    <div class="space-y"></div>
                 </div>
             </td>
-            <td class="bt-0" colspan="6">
+            <td class="by-0 bx-0 shadow" colspan="6">
                 <div class="main-div">
                     <p>
                         <input type="checkbox">
@@ -1227,7 +1343,7 @@
                     </p>
                 </div>
             </td>
-            <td class="bt-0" colspan="4">
+            <td class="by-0 bx-0 shadow" colspan="4">
                 <div class="main-div">
                     <p>
                         DEFENDANT COPY
@@ -1249,12 +1365,12 @@
                     </p>
                 </div>
             </td>
-            <td class="bt-0" colspan="3">
+            <td class="br-0 bt-0" colspan="3">
                 <div class="main-div">
                     <p style="font-size: 20px;"><strong>FPO Barcode</strong></p>
                 </div>
             </td>
-            <td class="bt-0" colspan="3">
+            <td class="bl-0 bt-0" colspan="3">
                 <div class="main-div">
                     <p style="font-size: 20px;"><strong>(USS Code 39)</strong></p>
                 </div>
