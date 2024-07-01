@@ -44,6 +44,22 @@ public class Body {
         return incidentTs;
     }
 
+    public String getDatetTs() {
+        return incidentTs[2] + "/"+ incidentTs[1] + "/" +  incidentTs[0] ;
+    }
+
+    public String getTimetTs() {
+        return incidentTs[3] + "/"+ incidentTs[4] + "/" +  incidentTs[5] ;
+    }
+
+    public String getTimeTsPm() {
+        return incidentTs[3] >= 12 ? "checked": "";
+    }
+
+    public String getTimeTsAm() {
+        return incidentTs[3] < 12 ? "checked" : "";
+    }
+
     public void setIncidentTs(long[] incidentTs) {
         this.incidentTs = incidentTs;
     }

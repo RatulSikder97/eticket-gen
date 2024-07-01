@@ -25,6 +25,16 @@ public class Driver {
     private Object phoneNumber;
     private boolean isDriver;
 
+    public String getBirthString() {
+        return this.birthDate[2] + "/" + this.birthDate[1] + "/" + this.birthDate[0];
+    }
+    public String isComY() {
+        return this.cdl ? "checked" : "";
+    }
+
+    public String isComN() {
+        return this.cdl ? "" : "checked";
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -47,6 +57,10 @@ public class Driver {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
     }
 
     public String getSex() {

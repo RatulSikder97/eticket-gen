@@ -1,5 +1,7 @@
 package com.neutron.eticket.models.domains;
 
+import java.util.Objects;
+
 public class Vehicle {
 
     private String year;
@@ -14,6 +16,18 @@ public class Vehicle {
     private String cmv;
     private String hazmat;
     private long[] exp;
+
+    public String getExpire() {
+        return  this.exp[2] + "/" + this.exp[1] + "/" + this.exp[0];
+    }
+    public String isCVM() {
+        return Objects.equals(this.cmv, "yes") ? "checked" : "";
+    }
+
+    public String isHAZ() {
+        return Objects.equals(this.hazmat, "yes") ? "checked" : "";
+    }
+
 
     public String getYear() {
         return year;
