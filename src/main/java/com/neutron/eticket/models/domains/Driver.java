@@ -21,7 +21,7 @@ public class Driver {
     private String weight;
     private String hairColor;
     private String eyeColor;
-    private String stateDL;
+    private String stateDl;
     private Object phoneNumber;
     private boolean isDriver;
 
@@ -199,12 +199,12 @@ public class Driver {
         this.eyeColor = eyeColor;
     }
 
-    public String getStateDL() {
-        return stateDL;
+    public String getStateDl() {
+        return stateDl;
     }
 
-    public void setStateDL(String stateDL) {
-        this.stateDL = stateDL;
+    public void setStateDl(String stateDl) {
+        this.stateDl = stateDl;
     }
 
     public Object getPhoneNumber() {
