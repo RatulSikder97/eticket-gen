@@ -3,8 +3,7 @@ package com.neutron.eticket.models.domains;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Arrays;
-import java.util.Optional;
+import java.util.*;
 
 public class Body {
     private long id;
@@ -243,12 +242,22 @@ public class Body {
         }
         String conditionString = "";
 
+        Long[] orders = {1L, 2L, 3L, 4L, 6L, 9L};
+        Set<Long> orderIds = new HashSet<Long>();
+
+        Collections.addAll(orderIds, orders);
 
         StringBuilder result = new StringBuilder();
         for (ValueList item : valueList) {
+
+            if (!orderIds.contains(item.getOrderID())) {
+                continue;
+            }
+
             if (!result.isEmpty()) {
                 result.append(", ");
             }
+
 
             if(item.getValues().length > 0) {
                 result.append("<b>").append(item.getName()).append("</b> - ").append(Arrays.toString(item.getValues()));

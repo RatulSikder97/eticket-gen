@@ -1,6 +1,9 @@
 package com.neutron.eticket.models.domains;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ValueList {
+    @SerializedName("orderId")
     private long orderID;
     private String name;
     private String[] values;
