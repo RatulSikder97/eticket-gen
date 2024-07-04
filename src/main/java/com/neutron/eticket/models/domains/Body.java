@@ -296,4 +296,54 @@ public class Body {
 
         return radar.get().getValue() != null ? radar.get().getValue() : (radar.get().getValues().length > 0 ? radar.get().getValues()[0] : "") ;
     }
+
+    public String getEfrValue() {
+        Optional<FormList> filteredFormList = Arrays.stream(formList).filter(details -> details.getType().equals("CONDITIONS")).findFirst();
+
+        if(filteredFormList.isEmpty()) {
+            return "";
+        }
+
+        ValueList[] valueList = filteredFormList.get().getValueList();
+        int valueListLength = valueList.length;
+
+        if(valueListLength == 0) {
+            return "";
+        }
+
+        Optional<ValueList> radar = Arrays.stream(valueList).filter(val -> val.getOrderID() == 12L).findFirst();
+
+        if(radar.isEmpty()) {
+            return  "";
+        }
+
+        return radar.get().getValue() != null ? radar.get().getValue() : (radar.get().getValues().length > 0 ? radar.get().getValues()[0] : "") ;
+    }
+
+    public String getEfrCheckValue() {
+        Optional<FormList> filteredFormList = Arrays.stream(formList).filter(details -> details.getType().equals("CONDITIONS")).findFirst();
+
+        if(filteredFormList.isEmpty()) {
+            return "";
+        }
+
+        ValueList[] valueList = filteredFormList.get().getValueList();
+        int valueListLength = valueList.length;
+
+        if(valueListLength == 0) {
+            return "";
+        }
+
+        Optional<ValueList> radar = Arrays.stream(valueList).filter(val -> val.getOrderID() == 12L).findFirst();
+
+        if(radar.isEmpty()) {
+            return  "";
+        }
+
+
+        return (radar.get().getValue() != null && radar.get().getValue().equalsIgnoreCase("yes")) ||
+                (radar.get().getValues() != null && radar.get().getValues().length > 0 && "yes".equalsIgnoreCase(radar.get().getValues()[0]))
+                ? "checked"
+                : "";
+    }
 }

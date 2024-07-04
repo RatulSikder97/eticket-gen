@@ -107,6 +107,7 @@ public class EticketGenServiceImpl implements EticketGenService{
 
 
     private String fillDataOne(String htmlTemplate, ETicket eticket) {
+        System.out.println(String.valueOf(eticket.getBody().getEfrCheckValue()));
         htmlTemplate = htmlTemplate.replace("{{eticket.body.id}}", String.valueOf(eticket.getBody().getDepartmentID()))
                 .replace("{{eticket.dateTs}}", String.valueOf(eticket.getBody().getDatetTs()))
                 .replace("{{eticket.timeTs}}", String.valueOf(eticket.getBody().getTimetTs()))
@@ -147,7 +148,8 @@ public class EticketGenServiceImpl implements EticketGenService{
                 .replace("{{eticket.officer.name}}", String.valueOf(eticket.getBody().getOfficer().getFullName()))
                 .replace("{{eticket.officer.id}}", String.valueOf(eticket.getBody().getOfficer().getId()))
                 .replace("{{eticket.court}}", String.valueOf(eticket.getBody().getCourtName()))
-                .replace("{{eticket.efr}} ", String.valueOf("No"))
+                .replace("{{eticket.efr}} ",String.valueOf(eticket.getBody().getEfrValue()))
+                .replace("{{eticket.checkEfr}} ",String.valueOf(eticket.getBody().getEfrCheckValue()))
                 .replace("{{eticket.violationCode}}", String.valueOf(eticket.getBody().getDetailList()[0].getViolationList()[0].getCode()))
                 .replace("{{eticket.violationDesc}}", String.valueOf(eticket.getBody().getDetailList()[0].getViolationList()[0].getName()))
                 .replace("{{eticket.apprSpeed}}", String.valueOf(eticket.getBody().getDetailList()[0].getViolationList()[0].getViolationFieldList().getRecordedSpeed()))
