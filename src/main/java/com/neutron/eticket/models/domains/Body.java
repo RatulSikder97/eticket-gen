@@ -259,7 +259,7 @@ public class Body {
             }
 
 
-            if(item.getValues().length > 0) {
+            if(item.getValues() != null && item.getValues().length > 0) {
                 result.append("<b>").append(item.getName()).append("</b> - ").append(Arrays.toString(item.getValues()));
             }
 
@@ -272,5 +272,28 @@ public class Body {
         // Output the result string
 
         return result.toString();
+    }
+
+    public String getRadarValue() {
+        Optional<FormList> filteredFormList = Arrays.stream(formList).filter(details -> details.getType().equals("CONDITIONS")).findFirst();
+
+        if(filteredFormList.isEmpty()) {
+            return "";
+        }
+
+        ValueList[] valueList = filteredFormList.get().getValueList();
+        int valueListLength = valueList.length;
+
+        if(valueListLength == 0) {
+            return "";
+        }
+
+        Optional<ValueList> radar = Arrays.stream(valueList).filter(val -> val.getName().equals("Radar")).findFirst();
+
+        if(radar.isEmpty()) {
+            return  "";
+        }
+
+        return radar.get().getValue() != null ? radar.get().getValue() : (radar.get().getValues().length > 0 ? radar.get().getValues()[0] : "") ;
     }
 }

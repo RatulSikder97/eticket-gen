@@ -154,6 +154,7 @@ public class EticketGenServiceImpl implements EticketGenService{
                 .replace("{{eticket.pfMaxSpeed}}", String.valueOf(eticket.getBody().getDetailList()[0].getViolationList()[0].getViolationFieldList().getPostedSpeed()))
                 .replace("{{eticket.courtAppearTime}}", String.valueOf(eticket.getBody().getAppearAtCourtDateF()))
                 .replace("{{eticket.conditions}}", String.valueOf(eticket.getBody().getConditionDetail()))
+                .replace("{{eticket.radar}}", String.valueOf(eticket.getBody().getRadarValue()))
         ;
 
         return htmlTemplate;
