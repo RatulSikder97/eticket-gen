@@ -3,6 +3,9 @@ package com.neutron.eticket.models.domains;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public class Body {
     private long id;
     @SerializedName("departmentId")
@@ -224,5 +227,41 @@ public class Body {
 
     public void setCanVoid(boolean canVoid) {
         this.canVoid = canVoid;
+    }
+
+    public String getConditionDetail() {
+        Optional<FormList> filteredFormList = Arrays.stream(formList).filter(details -> details.getType().equals("CONDITIONS")).findFirst();
+
+        if(filteredFormList.isEmpty()) {
+            return "";
+        }
+        ValueList[] valueList = filteredFormList.get().getValueList();
+        int valueListLength = valueList.length;
+
+        if(valueListLength == 0) {
+            return "";
+        }
+        String conditionString = "";
+
+
+        StringBuilder result = new StringBuilder();
+        for (ValueList item : valueList) {
+            if (!result.isEmpty()) {
+                result.append(", ");
+            }
+
+            if(item.getValues().length > 0) {
+                result.append("<b>").append(item.getName()).append("</b> - ").append(Arrays.toString(item.getValues()));
+            }
+
+            if(item.getValue() != null) {
+                result.append("<b>").append(item.getName()).append("</b> - ").append(item.getValue());
+            }
+
+        }
+
+        // Output the result string
+
+        return result.toString();
     }
 }

@@ -4,6 +4,16 @@ public class ValueList {
     private long orderID;
     private String name;
     private String[] values;
+    private String value;
+
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
     public long getOrderID() {
         return orderID;

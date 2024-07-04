@@ -107,7 +107,6 @@ public class EticketGenServiceImpl implements EticketGenService{
 
 
     private String fillDataOne(String htmlTemplate, ETicket eticket) {
-        System.out.println(eticket.getBody().getDriver().getStateDl());
         htmlTemplate = htmlTemplate.replace("{{eticket.body.id}}", String.valueOf(eticket.getBody().getDepartmentID()))
                 .replace("{{eticket.dateTs}}", String.valueOf(eticket.getBody().getDatetTs()))
                 .replace("{{eticket.timeTs}}", String.valueOf(eticket.getBody().getTimetTs()))
@@ -154,6 +153,7 @@ public class EticketGenServiceImpl implements EticketGenService{
                 .replace("{{eticket.apprSpeed}}", String.valueOf(eticket.getBody().getDetailList()[0].getViolationList()[0].getViolationFieldList().getRecordedSpeed()))
                 .replace("{{eticket.pfMaxSpeed}}", String.valueOf(eticket.getBody().getDetailList()[0].getViolationList()[0].getViolationFieldList().getPostedSpeed()))
                 .replace("{{eticket.courtAppearTime}}", String.valueOf(eticket.getBody().getAppearAtCourtDateF()))
+                .replace("{{eticket.conditions}}", String.valueOf(eticket.getBody().getConditionDetail()))
         ;
 
         return htmlTemplate;
