@@ -26,7 +26,7 @@ public class Driver {
     private boolean isDriver;
 
     public String getBirthString() {
-        return this.birthDate[2] + "/" + this.birthDate[1] + "/" + this.birthDate[0];
+        return this.birthDate[1] + "/" + this.birthDate[2] + "/" + this.birthDate[0];
     }
     public String isComY() {
         return this.cdl ? "checked" : "";

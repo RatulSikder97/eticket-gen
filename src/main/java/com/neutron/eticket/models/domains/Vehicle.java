@@ -18,7 +18,7 @@ public class Vehicle {
     private long[] exp;
 
     public String getExpire() {
-        return  this.exp[2] + "/" + this.exp[1] + "/" + this.exp[0];
+        return  this.exp[1] + "/" + this.exp[2] + "/" + this.exp[0];
     }
     public String isCVM() {
         return Objects.equals(this.cmv, "yes") ? "checked" : "";

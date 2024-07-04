@@ -1,8 +1,11 @@
 package com.neutron.eticket.models.domains;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class Body {
     private long id;
+    @SerializedName("departmentId")
     private String departmentID;
     private long[] incidentTs;
     private long[] localIncidentTs;
@@ -32,6 +35,7 @@ public class Body {
         this.id = id;
     }
 
+
     public String getDepartmentID() {
         return departmentID;
     }
@@ -44,12 +48,16 @@ public class Body {
         return incidentTs;
     }
 
+
+    public String getAppearAtCourtDateF() {
+        return appearAtCourtDate[1] + "/"+ appearAtCourtDate[2] + "/" +  appearAtCourtDate[0] ;
+    }
     public String getDatetTs() {
-        return incidentTs[2] + "/"+ incidentTs[1] + "/" +  incidentTs[0] ;
+        return incidentTs[1] + "/"+ incidentTs[2] + "/" +  incidentTs[0] ;
     }
 
     public String getTimetTs() {
-        long hour = incidentTs[3] % 12;
+        long hour = localIncidentTs[3] % 12;
 
         String sHour = String.valueOf(hour);
         if(hour == 0) {
@@ -59,15 +67,15 @@ public class Body {
         if (hour < 10) {
             sHour = "0"+hour;
         }
-        return sHour + ":"+ incidentTs[4] + ":" + (incidentTs[5] < 10 ? "0" : "") + incidentTs[5] ;
+        return sHour + ":"+ localIncidentTs[4] + ":" + (localIncidentTs[5] < 10 ? "0" : "") + localIncidentTs[5] ;
     }
 
     public String getTimeTsPm() {
-        return incidentTs[3] >= 12 ? "checked": "";
+        return localIncidentTs[3] >= 12 ? "checked": "";
     }
 
     public String getTimeTsAm() {
-        return incidentTs[3] < 12 ? "checked" : "";
+        return localIncidentTs[3] < 12 ? "checked" : "";
     }
 
     public void setIncidentTs(long[] incidentTs) {
