@@ -346,4 +346,41 @@ public class Body {
                 ? "checked"
                 : "";
     }
+
+
+
+    public ZoneCheck getZoneCheckValue() {
+        Optional<FormList> filteredFormList = Arrays.stream(formList).filter(details -> details.getType().equals("CONDITIONS")).findFirst();
+
+        ZoneCheck zoneCheck = new ZoneCheck();
+        if(filteredFormList.isEmpty()) {
+            return zoneCheck;
+        }
+
+        ValueList[] valueList = filteredFormList.get().getValueList();
+        int valueListLength = valueList.length;
+
+        if(valueListLength == 0) {
+            return zoneCheck;
+        }
+
+        Optional<ValueList> construction = Arrays.stream(valueList).filter(val -> val.getOrderID() == 5L).findFirst();
+
+        if(construction.isEmpty() || construction.get().getValue() == null) {
+            zoneCheck.setConstructionZone(false);
+        } else {
+            zoneCheck.setConstructionZone(construction.get().getValue().equalsIgnoreCase("yes") || (construction.get().getValues() != null && construction.get().getValues().length > 0 && construction.get().getValues()[0].equalsIgnoreCase("yes")) );
+        }
+
+        Optional<ValueList> schoolZone = Arrays.stream(valueList).filter(val -> val.getOrderID() == 7L).findFirst();
+
+
+        if(schoolZone.isEmpty() || schoolZone.get().getValue() == null) {
+            zoneCheck.setSchoolZone(false);
+        } else {
+            zoneCheck.setSchoolZone(schoolZone.get().getValue().equalsIgnoreCase("yes") || (schoolZone.get().getValues() != null && schoolZone.get().getValues().length > 0 && schoolZone.get().getValues()[0].equalsIgnoreCase("yes")) );
+        }
+
+        return  zoneCheck;
+    }
 }

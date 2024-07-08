@@ -9,6 +9,7 @@ import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.utils.PdfMerger;
 import com.neutron.eticket.models.domains.ETicket;
+import com.neutron.eticket.models.domains.ZoneCheck;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
@@ -108,6 +109,8 @@ public class EticketGenServiceImpl implements EticketGenService{
 
     private String fillDataOne(String htmlTemplate, ETicket eticket) {
         System.out.println(String.valueOf(eticket.getBody().getEfrCheckValue()));
+
+        ZoneCheck zoneCheck = eticket.getBody().getZoneCheckValue();
         htmlTemplate = htmlTemplate.replace("{{eticket.body.id}}", String.valueOf(eticket.getBody().getDepartmentID()))
                 .replace("{{eticket.dateTs}}", String.valueOf(eticket.getBody().getDatetTs()))
                 .replace("{{eticket.timeTs}}", String.valueOf(eticket.getBody().getTimetTs()))
@@ -157,6 +160,8 @@ public class EticketGenServiceImpl implements EticketGenService{
                 .replace("{{eticket.courtAppearTime}}", String.valueOf(eticket.getBody().getAppearAtCourtDateF()))
                 .replace("{{eticket.conditions}}", String.valueOf(eticket.getBody().getConditionDetail()))
                 .replace("{{eticket.radar}}", String.valueOf(eticket.getBody().getRadarValue()))
+                .replace("{{eticket.isConstructionZone}}", zoneCheck.isConstructionZone() ? "checked" : "")
+                .replace("{{eticket.isSchoolZone}}",  zoneCheck.isSchoolZone() ? "checked" : "")
         ;
 
         return htmlTemplate;
